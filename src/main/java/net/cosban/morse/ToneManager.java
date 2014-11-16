@@ -18,13 +18,13 @@ public class ToneManager implements LineListener {
 		index = 0;
 		clips = new Clip[codes.length * 2];
 		for (int i = 0; i < clips.length; i += 2) {
-			if (codes[i / 2] == '0') {
+			if (codes[i / 2] == '.') {
 				clips[(i / 2)] = generateTone(20, false);
-			} else if (codes[i / 2] == '1') {
+			} else if (codes[i / 2] == '-') {
 				clips[i / 2] = generateTone(60, false);
-			} else if (codes[i / 2] == '2') {
+			} else if (codes[i / 2] == ' ') {
 				clips[(i / 2)] = generateTone(60, true);
-			} else if (codes[i / 2] == '3') {
+			} else if (codes[i / 2] == '/') {
 				clips[(i / 2)] = generateTone(100, true);
 			}
 			clips[(i / 2) + 1] = generateTone(20, true);

@@ -8,7 +8,7 @@ public class Morse {
 	public static void main(String[] args) {
 		if (args.length < 1) {
 			System.out.println("usage: Morse <input file>");
-			System.exit(1);
+			return;
 		}
 
 		File input = new File(args[0]);
@@ -27,7 +27,7 @@ public class Morse {
 			int i = 0;
 			int c;
 			while ((c = reader.read()) != -1) {
-				if (!(c == 32 || c == 44 || c == 46 || (c > 47 && c < 58) ||
+				if (!(c == 10 || c == 13 || c == 32 || c == 44 || c == 46 || (c > 47 && c < 58) ||
 						c == 63 || (c > 64 && c < 91) || (c > 96 && c < 123))) {
 					System.out.println("Invalid character used! a-z, A-Z, 0-9 ?., and spaces only!");
 					System.exit(1);
@@ -41,7 +41,7 @@ public class Morse {
 			reader.close();
 		} catch (IOException e) {
 			System.out.println("Unable to read input file at " + input.getAbsolutePath());
-			System.exit(1);
+			return;
 		}
 
 		String encoding = "";
