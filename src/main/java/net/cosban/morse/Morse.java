@@ -52,11 +52,10 @@ public class Morse {
 		}
 		try {
 			ToneManager tones = new ToneManager(encoding.toCharArray());
-			tones.play();
-		} catch (LineUnavailableException e) {
+			tones.write(new File("test.wav"));
+		} catch (LineUnavailableException | IOException e) {
 			e.printStackTrace();
 		}
-
 
 	}
 }
