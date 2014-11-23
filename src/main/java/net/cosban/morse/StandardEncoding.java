@@ -3,7 +3,7 @@ package net.cosban.morse;
 import java.util.HashMap;
 import java.util.Map;
 
-public enum Encoding {
+public enum StandardEncoding {
 	A('A', ".- "),
 	B('B', "-... "),
 	C('C', "-.-. "),
@@ -50,7 +50,7 @@ public enum Encoding {
 	private              String                 code;
 	private              char                   value;
 
-	private Encoding(char value, String code) {
+	private StandardEncoding(char value, String code) {
 		this.value = value;
 		this.code = code;
 	}
@@ -61,7 +61,7 @@ public enum Encoding {
 
 	static {
 		pairs = new HashMap<>();
-		for (Encoding e : values())
+		for (StandardEncoding e : values())
 			pairs.put(e.value, e.code);
 	}
 }

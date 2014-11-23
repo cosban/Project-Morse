@@ -1,5 +1,7 @@
 package net.cosban.morse;
 
+import javax.sound.sampled.AudioFileFormat;
+import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.LineUnavailableException;
 import java.io.*;
 import java.nio.charset.Charset;
@@ -46,7 +48,7 @@ public class Morse {
 
 		String encoding = "";
 		for (char c : message) {
-			encoding += Encoding.getCode(c);
+			encoding += StandardEncoding.getCode(c);
 		}
 		try {
 			ToneManager tones = new ToneManager(encoding.toCharArray());
@@ -54,5 +56,7 @@ public class Morse {
 		} catch (LineUnavailableException e) {
 			e.printStackTrace();
 		}
+
+
 	}
 }
